@@ -14,5 +14,7 @@ module.exports = function(options) {
     const currentUser = hook.params.user;
 
     hook.data.title = `${currentUser.name}'s Game`;
+
+    hook.data.playerIds = [hook.params.user._id];
   };
 };
