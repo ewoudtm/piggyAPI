@@ -11,6 +11,6 @@ module.exports = function(options) {
   options = Object.assign({}, defaults, options);
 
   return function(hook) {
-    hook.createGame = true;
+    const currentUser = hook.params.user;
   };
 };
