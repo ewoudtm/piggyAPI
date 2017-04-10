@@ -1,5 +1,7 @@
 'use strict';
 
+const joinGame = require('./joinGame');
+
 const createGame = require('./createGame');
 
 const globalHooks = require('../../../hooks');
@@ -15,8 +17,8 @@ exports.before = {
   find: [],
   get: [],
   create: [createGame()],
-  update: [],
-  patch: [],
+  update: [joinGame()],
+  patch: [joinGame()],
   remove: []
 };
 
