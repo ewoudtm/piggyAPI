@@ -23,7 +23,12 @@ exports.before = {
 };
 
 exports.after = {
-  all: [],
+  all: [
+    hooks.populate('players', {
+      service: 'users',
+      field: 'playerIds'
+    })
+  ],
   find: [],
   get: [],
   create: [],
