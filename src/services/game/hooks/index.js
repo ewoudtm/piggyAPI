@@ -1,5 +1,7 @@
 'use strict';
 
+const isGameFull = require('./isGameFull');
+
 const joinGame = require('./joinGame');
 
 const createGame = require('./createGame');
@@ -23,12 +25,10 @@ exports.before = {
 };
 
 exports.after = {
-  all: [
-    hooks.populate('players', {
-      service: 'users',
-      field: 'playerIds'
-    })
-  ],
+  all: [hooks.populate('players', {
+    service: 'users',
+    field: 'playerIds'
+  }), isGameFull()],
   find: [],
   get: [],
   create: [],
