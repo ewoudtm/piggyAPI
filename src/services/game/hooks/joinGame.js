@@ -6,6 +6,7 @@
 // For more information on hooks see: http://docs.feathersjs.com/hooks/readme.html
 
 const errors = require('feathers-errors');
+const isGameFull = require('../isGameFull');
 
 module.exports = function(options) {
   return function(hook) {
@@ -13,6 +14,13 @@ module.exports = function(options) {
       .then((game) => {
         if (hook.data.joinGame === undefined) {
           throw new errors.Forbidden('You must be the author to change a game like that.');
+        }
+
+        // See Feathers code for available error types
+        // https://github.com/feathersjs/feathers-errors/blob/master/src/index.js
+
+        if (isGameFull(game)) {
+          throw new errors.Unprocessable('Sorry, this game is full!');
         }
 
         const action = hook.data.joinGame ? '$addToSet' : '$pull';
