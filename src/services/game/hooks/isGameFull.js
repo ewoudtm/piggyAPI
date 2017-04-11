@@ -12,13 +12,15 @@ module.exports = function(options) {
   options = Object.assign({}, defaults, options);
 
   return function(hook) {
+    const { result } = hook;
+
     if (hook.method === 'find') {
       result.data = result.data.map((game) => {
         const full = isGameFull(game)
         return Object.assign({}, game, { full })
       });
     } else {
-      result.full = gameIsFull(result)
+      result.full = isGameFull(result)
     }
   };
 };
