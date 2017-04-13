@@ -1,5 +1,5 @@
 'use strict'
 
 module.exports = function isGameFull(game) {
-  return game.playerIds.length >= 2;
+  return game.players.length >= 2;
 }

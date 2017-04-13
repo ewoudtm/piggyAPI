@@ -10,7 +10,14 @@ const Schema = mongoose.Schema;
 
 const gameSchema = new Schema({
   title: { type: String, required: true },
-  playerIds: [Schema.Types.ObjectId],
+  players: [{
+    playerId: Schema.Types.ObjectId,
+    name: String,
+    gameTotal: { type: Number, 'default': 0 },
+    roundTotal: { type: Number, 'default': 0 }
+    }],
+  currentPlayer: Schema.Types.ObjectId,
+  firstRound: { type: Boolean, 'default': true },
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }
 });
