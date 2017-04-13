@@ -11,7 +11,7 @@ function isFirstEncounter(hook, game) {
   if (!hook.provider) return
 
   return hook.app.service('games')
-    .find({ query: { playerIds: { $all: game.playerIds }}})
+    .find({ query: { playerId: { $all: game.players.playerId }}})
     .then((games) => {
       return games.length === 0
     })

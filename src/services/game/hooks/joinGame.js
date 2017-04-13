@@ -25,7 +25,7 @@ module.exports = function(options) {
 
         const action = hook.data.joinGame ? '$addToSet' : '$pull';
         let data = {};
-        data[action] = { playerIds: hook.params.user._id };
+        data[action] = { players: { playerId: hook.params.user._id, name: hook.params.user.name } };
         hook.data = data;
       })
   }
