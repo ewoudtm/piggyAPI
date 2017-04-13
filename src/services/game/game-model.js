@@ -17,6 +17,7 @@ const gameSchema = new Schema({
     roundTotal: { type: Number, 'default': 0 }
     }],
   currentPlayer: Schema.Types.ObjectId,
+  dieRoll: { type: Number, 'default': 0 },
   firstRound: { type: Boolean, 'default': true },
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }
