@@ -1,13 +1,10 @@
 'use strict';
 
 const firstEncounter = require('./firstEncounter');
-
 const isGameFull = require('./isGameFull');
-
+const dieRoll = require('./dieRoll');
 const joinGame = require('./joinGame');
-
 const createGame = require('./createGame');
-
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
@@ -22,7 +19,7 @@ exports.before = {
   get: [],
   create: [createGame()],
   update: [joinGame()],
-  patch: [joinGame()],
+  patch: [joinGame(), dieRoll()],
   remove: []
 };
 
