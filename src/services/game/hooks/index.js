@@ -27,7 +27,7 @@ exports.before = {
 };
 
 exports.after = {
-  all: [isGameFull(), firstEncounter()],
+  all: [isGameFull(), firstEncounter()]}
   find: [],
   get: [],
   create: [],
