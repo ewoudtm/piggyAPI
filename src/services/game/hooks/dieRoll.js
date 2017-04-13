@@ -10,13 +10,9 @@ const defaults = {};
 
 module.exports = function(options) {
   options = Object.assign({}, defaults, options);
-
+debugger
   return function(hook) {
-    const currentUser = hook.params.user; // different
 
-    // hook.data.title = `${currentUser.name}'s Game`;
-
-    // hook.data.playerIds = [hook.params.user._id];
     hook.data.dieRoll = dieRoll();
   };
 };
