@@ -10,6 +10,7 @@ const isGameFull = require('../isGameFull');
 
 module.exports = function(options) {
   return function(hook) {
+    console.log('joinGame')
     return hook.app.service('games').get(hook.id)
       .then((game) => {
         if (hook.data.rollDie) return
@@ -23,7 +24,7 @@ module.exports = function(options) {
         if (isGameFull(game)) {
           throw new errors.Unprocessable('Sorry, this game is full!');
         }
-
+        
         const action = hook.data.joinGame ? '$addToSet' : '$pull';
         let data = {};
         data[action] = { players: { playerId: hook.params.user._id, name: hook.params.user.name } };
