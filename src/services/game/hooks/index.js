@@ -4,6 +4,7 @@ const firstEncounter = require('./firstEncounter');
 const isGameFull = require('./isGameFull');
 const dieRoll = require('./dieRoll');
 const joinGame = require('./joinGame');
+const cash = require('./cash');
 const createGame = require('./createGame');
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
@@ -19,7 +20,7 @@ exports.before = {
   get: [],
   create: [createGame()],
   update: [joinGame()],
-  patch: [joinGame(), dieRoll()],
+  patch: [dieRoll(), cash()],
   remove: []
 };
 

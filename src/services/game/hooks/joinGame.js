@@ -14,6 +14,8 @@ module.exports = function(options) {
     return hook.app.service('games').get(hook.id)
       .then((game) => {
         if (hook.data.rollDie) return
+        if (hook.data.cash) return
+
         if (hook.data.joinGame === undefined) {
           throw new errors.Forbidden('You must be the author to change a game like that.');
         }
@@ -24,7 +26,7 @@ module.exports = function(options) {
         if (isGameFull(game)) {
           throw new errors.Unprocessable('Sorry, this game is full!');
         }
-        
+
         const action = hook.data.joinGame ? '$addToSet' : '$pull';
         let data = {};
         data[action] = { players: { playerId: hook.params.user._id, name: hook.params.user.name } };
