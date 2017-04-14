@@ -11,19 +11,15 @@ module.exports = function(options) {
   options = Object.assign({}, defaults, options);
 
   return function(hook) {
-    if (hook.data.cash === undefined) return;
-
       return hook.app.service('games').get(hook.id)
         .then((game) => {
           game.players.forEach( function (player) {
-            player.turn = !player.turn;
             if (String(player.playerId) === String(hook.params.user._id)) {
               player.gameTotal += player.roundTotal;
               player.roundTotal = 0;
             };
             return
           });
-
           let data = {};
           data = Object.assign({},game);
           hook.data = data

@@ -27,10 +27,13 @@ module.exports = function(options) {
           throw new errors.Unprocessable('Sorry, this game is full!');
         }
 
+        game.currentPlayer = game.players[0];
+
         const action = hook.data.joinGame ? '$addToSet' : '$pull';
         let data = {};
         data[action] = { players: { playerId: hook.params.user._id, name: hook.params.user.name } };
         hook.data = data;
+
       })
   }
 }
