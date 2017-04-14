@@ -15,7 +15,7 @@ module.exports = function(options) {
 
     hook.data.title = `${currentUser.name}'s Game`;
 
-    const player = Object.assign({}, defaults, { playerId: currentUser._id, name: currentUser.name } );
+    const player = Object.assign({}, defaults, { playerId: currentUser._id, name: currentUser.name, turn: true } );
 
     hook.data.players = [player];
   };
