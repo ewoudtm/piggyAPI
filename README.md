@@ -1,8 +1,10 @@
-# ShutUp
+# PiggyAPI
 
-> What&#39;s in a name?
+> The curly end of the Piggy game! Still a work in progress...
 
 ## About
+This project is part of the Codaisseur academy, exploring React-Redux with a Feathers and MongoDB back-end.
+
 
 This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
 
