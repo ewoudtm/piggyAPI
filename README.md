@@ -4,7 +4,7 @@
 
 ## About
 This project is part of the Codaisseur academy, exploring React-Redux with a Feathers and MongoDB back-end.
-
+frontend > github.com/ewoudtm/piggyUI
 
 This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
 
